@@ -1,0 +1,18 @@
+.gp-el-collapse__header {
+    display: flex;
+    margin: 0;
+}
+
+.gp-el-collapse__header__key {
+    margin: 0;
+    padding-right: 5px;
+}
+
+.gp-el-collapse__header__value {
+    margin: 0;
+    padding-right: 20px;
+}
+
+.gp-el-collapse__content {
+    padding: 5px 5px 0 5px;
+}

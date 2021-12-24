@@ -1,0 +1,28 @@
+<%- include(`${profilerViewsDir}/mixins/format-timestamp.ejs`) -%>
+
+<% const { coll, method, queryOrDoc, ...options } = data %>
+
+<article class="gp-el-collapse">
+    <dl class="gp-el-collapse__header" role="heading">
+        <dt class="color-info-dark gp-el-collapse__header__key">Time:</dt>
+        <dd class="gp-el-collapse__header__value"><%= formatTimestamp(Math.ceil(time)) %></dd>
+        <dt class="color-info-dark gp-el-collapse__header__key">Collection:</dt>
+        <dd class="gp-el-collapse__header__value"><%= coll %></dd>
+        <dt class="color-info-dark gp-el-collapse__header__key">Method:</dt>
+        <dd class="gp-el-collapse__header__value"><%= method %></dd>
+    </dl>
+    <section class="gp-el-collapse__content">
+        <%- include(`${profilerViewsDir}/pageviews/gp-el.ejs`, {
+            title: 'Query/Document',
+            content: queryOrDoc
+        }) -%>
+        <%- include(`${profilerViewsDir}/pageviews/gp-el.ejs`, {
+            title: 'Options',
+            content: options
+        }) -%>
+        <%- include(`${profilerViewsDir}/pageviews/gp-el.ejs`, {
+            title: 'Raw',
+            content: data
+        }) -%>
+    </section>
+</article>
